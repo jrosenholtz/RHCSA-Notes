@@ -1,0 +1,28 @@
+13.2 Configuring Rsyslog Logging
+
+rsyslog is both a legacy service and not. it is no longer used in a primary capacity, but is still used to write journalctl logs to /var/logs
+
+rsyslog needs the rsyslogd service to be running
+
+the main configuration file is /etc/rsyslog.conf
+
+snap in files can be placed in /etc/rsyslog.d. This is commonly used by rpm packages
+
+each logger line contains three items - these are the most important configuration items
+	facility: the specific facility the log was created for
+	severity: the severity from which should be logged
+	destination: the file or other destination the log should write to. 
+	
+log files are typically in /var/logs
+
+use the logger command to write messages to rsyslog manually. The logger command is a nice command, you can write anything to syslog so you know whats going on. 
+
+rsyslogd is and must be backwards compatible with the archaic syslog service that was invented in the 80'service
+
+in syslog, a fixed number of facilities was defined, like kern, authpriv, cron, and more. 
+
+to work with services that dont have their own facility, local {0..7} can be used. 
+
+because of the lack of facilities, some services take care of their own logging and dont use rsyslog. This can sometimes be a problem because it makes it more difficult to create a centralized log server
+
+Rules are the most important thing in /etc/rsyslog.conf. 

@@ -1,0 +1,11 @@
+12.2 UNderstanding cron Scheduling operations
+
+User specific ctron jobs, created using crontab -e
+
+generic time specific cron jobs in /etc/cron.d
+
+scripts, executed on an hourly, daily, weekly, monthly basis. These are in /etc/cron.hourly, etc/cron.daily, etc.
+
+There are generic cron jobs in /etc/crontab, but this is deprecated
+
+if you need a crontab for a specific user, use crontab -e. cron.d is usually used by rpms, so don't use this. things that need to be executed once an hour, week, or month, can be placed in the hourly or daily directories. 

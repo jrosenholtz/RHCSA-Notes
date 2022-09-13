@@ -1,0 +1,20 @@
+14.8 Mounting partitions through /etc/fstab
+
+/etc/fstab is the main config file to persistently mount partitions
+
+/etc/fstab content is used to generate systemd mounts by the systemd-fstab-generator utility
+
+to update systemd, make sure to use systemctl daemon-reload after editing /etc/fstab
+
+the first line contains the name of the device you want to be mounted
+
+the second line is the mount target
+
+the third line is the file system type
+
+the fourth line is defaults for default mount options
+
+the last lines are 0 0. These are both legacy options that no longer matter
+
+
+make sure the target directories are created and use mount -a to mount

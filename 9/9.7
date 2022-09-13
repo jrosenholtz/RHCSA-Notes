@@ -1,0 +1,23 @@
+9.7 Sending Signals to Processes
+
+a signal allows the os to interrupt a process from software
+
+an interrupt is comparable to signals, but interrupts are generated from hardware
+
+there are limited amounts of signals and they are documented in man 7 signals.
+
+signals may not apply to all processes in every case
+
+some signals always work
+
+use the kill command to send a signal to a PID
+
+you can also use k from top
+
+there are other kill commands like pkill and killall
+
+two ways of killing a process are signal 15 and signal 9. Signal 15 is the "right" way to do it and you should use it when possible. This is known as SIGTERM. Most cases will only need signal 15 or 9
+
+pkill will allow you to kill patterns, you dont have to use PID
+
+killall can kill processes based on a name or a different criteria

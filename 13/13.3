@@ -1,0 +1,16 @@
+13.3 Working with systemd-journald
+
+systemd-journald is the log service that is a part of systemd-journald
+
+it integrates well with systemctl status <unit> output
+
+this can be a very useful feature of systemd-journald
+
+journalctl command can also be used to read log entries
+
+messages are also logged to rsyslogd, using the rsyslogd imjournal module
+
+the journal is not persistent. to make it persistent, use mkdir /var/log/journal.
+
+you can use the configuration file /etc/systemd/journald.conf to adjust retention and other parameters for journald logging.
+

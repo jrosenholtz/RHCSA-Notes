@@ -1,0 +1,18 @@
+10.5 Managing modules and application streams	
+
+the yum module command is used to manage module properties
+	yum module list - lists available module
+	yum module provides httpd - searches the module that provides a specific package
+	yum module info php - shows more info on a module
+	yum module info --profile php - shows profules
+	yum module list php - shows streams that are available
+	yum module install php:7.1 or yum install @php:7.1 - installs the module and stream you selected. These commands are the same
+	yum module install php:7.1/devel - installs a specific profile
+	yum module install php:7.1 will install and enable a specific stream
+	yum module install php:7.2 will update to the newer version and disable 7.1
+	to update or downgrade packages froma  previous module stream that are not listed in profiles in the newest module update, use yum distro-sync
+	
+	
+Module is a collection of packages that gives you everything you need for a specific used
+stream is the update number
+profile can be things such as installs for devs, users, or minimal installs

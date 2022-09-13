@@ -1,0 +1,19 @@
+7.8 Understanding ACL
+
+an acl is used to grant permissions to additional users and groups
+
+the normal ACL applies to existing files only. If you apply an ACL to a directory it will work on currently existing files, but not new ones.
+
+use a default acl on a directory to apply it to new files also
+
+getfacl shows current settings
+
+setfacl -R -m g:somegroup:rx /data/groups
+	-R is recursive
+	-m is modify
+	-rx is the permissions read and execute
+	-/data/groups is the directory to apply permissions
+	
+setfacl -m d:g:somegroup:rx /data/groups
+	this is the same but sets it as default with the d: tag
+	this is automatically recursive when set on a directory

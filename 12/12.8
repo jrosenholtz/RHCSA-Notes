@@ -1,0 +1,22 @@
+12.7 Managing Temporary Files
+
+systemd-tmpfiles manages some temp files
+
+/usr/lib/tmpfiles.d directory manages settings for creating, deleting and cleaning up of temp files
+
+the systemd-tmpfiles-clean.timer unit can be configured to automatically clean up temporary files	
+	it triggers the systemd-tmpfiles-clean.service
+	this service run systemd-tmpfiles --clean
+	
+/usr/lib/tmpfiles.d/tmp.conf file contains settings for automatic tmp file cleanup
+
+when making mods, copy the file to /etc/tmpfiles.d
+
+after making mods to this file, use systemd-tmpfiles --clean /etc/tmpfiles.d/tmp.conf
+
+in tmp.conf youll find lines specifying which directory to monitor, which permissions are set, which owners, and how many days of not being used before you delete the file
+
+different actions can be performed on the directories and files that are managed
+
+consult man tmpfiles.d
+

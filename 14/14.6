@@ -1,0 +1,17 @@
+15.6 Understanding File System differences
+
+On RHEL 8, there are 2 file systems taht matter
+
+XFS is the default file system 
+	fast a scalable
+	uses copy on write (CoW) to guarantee integrity. Before you write a change, the original file is written somewhere else. This means it is easy to get your old file back
+	size can be increase, but not decreased
+	
+Ext4 was default in RHEL 6 and still used
+	it is back compat with ext2, which can make it dated in some ways
+	uses Journal to guarantee data integrity. The idea is that when writing to a file, the journal keeps track of this. It allows you to revert to a previous state of the file
+	Size can be increased and decreased
+	
+there are other, less common file systems too
+
+BTRFS was being experimented with but was ultimately not moved forward with	

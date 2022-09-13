@@ -1,0 +1,19 @@
+14.2 understanding linux storage options
+
+partitions are the classical solution and used in all cases
+	paritions can be used to allocated dedicated storage to specific types of data. 
+	as an example, you can put the /home directory on a different position. This way, users will not be able to fill up the OS directories. 
+	
+LVM logical volumes. 
+	these are used at the default RHEL installation
+	this adds flexibility to storage, allowing resizing, snapshots, and other useful abilities
+	
+stratis
+	this is a next generation volume managing filesystem that uses thin provisioning by default. 
+	implemented in user space, which makes API access possible
+	this means it can be addressed from different applications, making it useful for environments which use cloud or virtualization. 
+	
+Virtual Data Optimizer (VDO)
+	VDO is focused on sotring files in the most efficient way
+	managed deduplicated and compressed storage pools
+	

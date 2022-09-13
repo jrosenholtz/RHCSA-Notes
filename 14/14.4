@@ -1,0 +1,41 @@
+14.4 Creating partitions with parted
+
+while creating partitions, you do NOT automatically create a file system. 
+
+the parted file system attribute only writes unimportant file system metadata
+
+in RHEL 8, parted is the default utility
+
+you can also use fdisk for MBR and gdisk for GUID  partitions
+
+here is the process:
+
+use parted followed by the name of the device you want to work only
+
+parted /dev/sdb
+
+use print to show if there is a current partition table
+
+print
+
+use mklablel to set a partition scheme. use mbr or gpt
+
+mklabel gpt
+
+next use mkpart part-type name fs-type start end
+	part-type: applies to MBR only, this sets a primary, logical, or extended partition.
+	name: arbitrary name required for GPT
+	fs-type: this does NOT modify the file system, but instead sets irrelevant file system dependent metadata
+	start end: specify start and end, counting from the beginning of the disk.
+	ex: mkpart primary 1024MiB 2048 MiB
+	
+	note the little i in MiB, this works with 1024 instead of 1000 as MIB would
+	
+
+use print to verify creation of the partition
+
+quit to texit the parted shell
+
+udevadm settle to ensure that the new partition device is created. It makes sure all device names are updated 
+
+you can use cat /proc/partitions to verify the creation of the partition

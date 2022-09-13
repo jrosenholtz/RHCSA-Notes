@@ -1,0 +1,19 @@
+8.2 Understanding NIC naming	
+
+an IP configuration needs to be connected to a specific network device
+
+use ip link show to see current devices, use ip addr show to check configuration
+
+every system has an IO device used for internal networking
+
+apart from that you will see that name of the real network device, which is presented as a BIOS name
+
+classical naming is using device names like eth0, eth1, and so on
+	these dont reveal info about physical location
+	
+BIOS naming is based on hardware properties to give more specific information in the device name
+	em[1-n] for embedded nic
+	en[nn] for embedded nics
+	p<slot>p<port> for nics on pci bus
+	
+if the driver doesn't reveal these properties, classiscal naming is used, but bios name is default

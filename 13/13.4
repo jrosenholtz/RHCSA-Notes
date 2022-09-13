@@ -1,0 +1,20 @@
+13.4 Configuring Logging
+
+the journal is written to /run/log/journal, which is cleared on reboot
+
+edit /etc/systemd/journald.conf to make the journal persistent across reboots
+
+set the storage parameter in this file to the appropriate value
+	persistent will store the journal in the /var/log/journal directory. This directory will be created if it doesn't exist
+	Volatile stores the journal only in /run/log/journal
+	auto will store the journal in /var/log/journal if that directory exists, and in /run/log/journal if no /var/log/journal exists.
+	
+There is a built in log rotation for the journal as well
+
+the rotation runs monthly
+
+the journal cannot grow beyond 10% of the size of the file system it is on
+
+the journal will also make sure at least 15% of its file system will remain available as free space
+
+these settings can be changed in /etc/systed/journald.conf

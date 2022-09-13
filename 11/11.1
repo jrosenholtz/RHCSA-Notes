@@ -1,0 +1,33 @@
+11.1 Understanding systemd units
+
+systemd is the manager of everything after the start of the linux kernel
+
+it is a massive process that manages processes, mounting hardware, starting services, etc
+
+managed items are called units. A unit is a management items
+
+types of units include
+	service -  the most important type of unit. just a service process you can start or enable
+	socket - tell systemd to listen on a port
+	target - a group of services
+	mount - hard disk mounts
+	
+	the others are not as important right now
+	
+	automount
+	swap
+	timer
+	path
+	slice
+	scope
+	
+systemctl is the management interface to work with systemd
+
+managing services is the most important systemd related task for an administrator
+
+systemctl -t help
+	this shows a list of all unit types
+	
+systemctl list-unit-files shows all files available and the current state of them
+
+systemctl list-units - this gives the state of all units running on the server

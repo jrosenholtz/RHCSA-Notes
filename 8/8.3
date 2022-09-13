@@ -1,0 +1,27 @@
+8.3 Managing runtime configuration with IP
+
+Runtime configuration referes to configurations that are not persistent across reboots
+
+the ip tool can manage all aspects of configuration. It replaces ifconfig. Do not use ifconfig
+
+use ip addr to manage address properties
+
+use ip link to show link properties
+
+ip route manages route properties
+
+ip link show - see info about links
+
+ip -s link show - shows statistics about packets recieved, dropped, and transmitted. This can be useful
+
+ip addr show to see current address configuration
+
+ip addr add dev ens33 10.0.0.10/24 -  example of how to add an ip address. This would be a second ip address
+
+these configurations are runtime, meaning they will not persist through reboots.
+
+ip route show - this shows the current routing table
+
+DNS is managed through a configuration file. You cannot easily do this on a command line, but you can change etc/resolv.conf. THIS IS A RUNTIME FILE. it will not persist
+you will need to use network manager to get it persistent. 
+

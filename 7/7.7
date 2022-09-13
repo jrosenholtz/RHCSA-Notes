@@ -1,0 +1,22 @@
+7.6 Managing special permissions
+
+SUID
+	chmod 4770 myfile
+	chmod u+s myfile
+	
+SUID allows a user to run a file as the OWNER of the file. For example, if the owner of a file with suid is root, a user will be able to run it as root even without sudo permissions
+
+Usually you wouldn't want this. 
+
+SGID
+	chmod 2770 myfile
+	chmod g+s myfile
+	
+this on the other hand is very useful, especially for shared group folders
+
+sticky bit
+	chmod 1770 mydir
+	chmod +t mydir
+
+this can be useful to prevent users from deleting files thye dont own
+	

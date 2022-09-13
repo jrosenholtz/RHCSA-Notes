@@ -1,0 +1,13 @@
+13.1 Understanding THEL 8 Logging Options
+
+rsyslogd - this is the old logging system. it is used to write messages to /var/log
+
+since rhel 7 there is now systemd, this is responsible for managing services. With systemd came systemd-journald. systemd-journald keeps track of everything managed by systemd, which is practically everything. 
+
+systemd-journald is now the heart of everything for logging on your system. 
+
+you can use journalctl in the cli to view current logs. remember systemd-journald is not persistent by default, but /dev/log connects systemd-journald to rsyslogd to write to /var/log.
+
+if you want to make the systemd journal persistent, you can create a directory in /var/log/journal and this will automatically have logs written to it after a systemd reload. 
+
+/var/log can still be used, but it is a good idea to learn to use journalctl for advanced querying as well. 

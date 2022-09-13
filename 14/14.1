@@ -1,0 +1,32 @@
+14.1 Understanding Disk Layout
+
+a partition is a division of the disk where you cut it into smaller, usable sections. you can assign different directories to different partitions to isolate data. 
+
+the name of the disk will depend on the drivers, examples can be /dev/nvme01, /dev/sda, or /dev/vda
+
+the naming of partitions will be dependent on the name of the disk, and will count up numerically. for example, sda1,sda2,sda3, etc
+
+another aspect of partitioning is the boot type. systems either boot from bios, or from uefi. bios is technically legacy at this point, bios is outdated. uefi is sometimes referred to as efi. 
+
+Bios
+	bios typically comes with mbr, or master boot records. 
+	mbr only has 64 bytes, this means you can only have 4 partitions, MAX
+	to get around this limitation, mbr uses logical partitions.
+	logical partitions are created in the extended partition. 
+	typically, the extended partition is located in sda4, which is the last possible partition on the disk
+	by using logical partitions, you can go beyond 4 partitions
+	logical partition numbering always starts at 5, ex sda5
+	
+uefi
+	uefi typically comes with gpt, or guid based partition table
+	gpt does not have the same limitation. GPT will give you up to 128 partitions
+	
+lsblk is a nice place to check the block devices
+
+there are multiple partitioning utilities. One of the popular ones is parted
+
+parted /dev/nvme01
+
+another good way to check is to look at the /dev directory. for example, ls -l nvm*. you can use sd* for scsi disks
+
+cat /proc/partitions will allow you to check yet another way.

@@ -1,0 +1,24 @@
+10.2 Setting up Repo access
+
+We will create a local repo to install packages from the RHEL 8 installation disk ISO image. You can also set up repos from https or ftp
+
+Create an ISO: dd if=/dev/sr0 of=/RHEL9.iso bs=1m - bs=1M makes it work with 1 MB blocks
+
+Create a directory /repo: mkdir /repo
+
+add this line to fstab to autmount this dir: /RHEL9.iso /repo iso9660 defaults 0 0 
+
+Next, create the file /etc/yum.repos.d/appstream.repo with the following contents
+	[appstream] - this the label, always between square brackets
+	name=appstream - this is the name of the repo
+	baseurl=file:///repo/AppStream - this is the location of the repo. This always starts with a uri, in this case that is file://
+	gpgcheck=0
+	
+dont worry about gpgcheck if you are using a local repo
+
+each repo needs its own entry, so we still need a repo for the base apps repo located under /repo/BaseOS. Create in the file /etc/yum.repos.d/base.repo
+
+[base]
+name=base
+baseurl=file:///repo/BaseOS
+gpgcheck=0

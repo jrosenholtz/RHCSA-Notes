@@ -1,0 +1,11 @@
+4.5 Using Sed
+
+sed is stream editor
+
+sed is the old version of vi, except you program an operation on matching text
+
+example
+sed -n 4p file - prints fourth line of the file
+
+sed -i s/four/FOUR/g file - in this command, -i makes sed write to the file instead of stdout. s/four/FOUR/g replaces four with FOUR. s is substitution, g is global
+sed -i -e '2d' file - deletes the second file

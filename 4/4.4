@@ -1,0 +1,10 @@
+4.5 Using awk
+
+awk is a powerful text processing utility that specializes in data extraction
+
+it can perform actions based on selectors
+
+awk can be treated as a complete programming language
+
+example
+awk -F : '/password/ {print $4}' /etc/passwd - shows only the 4th field of a line that has the word password in the /etc/passwd file

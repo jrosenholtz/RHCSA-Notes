@@ -1,0 +1,27 @@
+10.3 Understanding Modules and Application Streams
+
+RHEL 8 introduced application streams and modules
+
+app streams can be used to seperate user space packages from core kernel operations
+
+using application streams allow for working with different versions of packages
+
+base packages are provided through the baseOS repo
+
+appstream is a seperate repo
+
+
+appstreams are delivered in 2 formats
+	traditional rpms
+	new modules
+
+Modules can contain streams to make multiple versions of apps available
+
+enabling a module stream gives access to rpm packages in that stream
+
+modules can also have profiles. A profile is a list of packages that belong to a specific use case
+	example: minimal, complete, recommended installations, etc
+
+the package list of a module can contain packages outside the module stream
+
+use the yum module command to manage modules

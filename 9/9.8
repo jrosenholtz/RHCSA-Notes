@@ -1,0 +1,17 @@
+9.8 Managing Priorities and Niceness
+
+By Default, linux priorities start with the same priority
+
+in kernel land realtime processes are handled with the highest priorty
+
+to change priorities of non realtime processes, the nice and renice commands can be used
+
+nice values range from -20 to 19. higher is "nicer" and use less cpu cycles
+
+negatice nice values increase priority, positive decrease priority
+
+users can set their processes to a lower priority, but cannot increase it without root
+
+the highest priority is RT or real time, it goes before any other processes and is typically reserved for important kernel processes
+
+nice will set the niceness of a new process, renice will set the niceness of a running process

@@ -1,0 +1,18 @@
+11.3 Modifying Systemd service configuration
+
+you may have to modify service configuration as well
+
+default system provided systemd unit files are in /usr/lib/systemd/system - dont touch these
+
+custom files go in /etc/systemd/system.
+
+run time generated files are in /run/systemd
+
+while modifying a unit file, do NOT edit the file in /usr/lib/systemd/system but create a custom file in /etc/systemd/system that is used as an overlay file
+
+
+better yet, use systemctl edit unit.service to edit unit files
+
+use systemctl show to show available parameters
+
+you may need to use systemctl-reload

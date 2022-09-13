@@ -1,0 +1,16 @@
+14.3 Understanding GPT and MBR partitions
+
+master boot record (MBR) is part of the 1981 PC spec
+	512 bytes to store boot info
+	64 bytes to store partitions
+	place for 4 partitions only with a max size of 2 tb
+	to use more partitions, extended and logical partitions must be used
+	
+GUID Partition table is a newer partition table (2010)
+	in guid, there is more space to store partitions
+	used to overcome MBR limitations
+	128 partitions max
+	there is no more need for extended and logical partitions
+	
+you may encounter both partition types, so you need to be familiar with each
+	

@@ -1,0 +1,24 @@
+10.8 using RPM queries
+
+for most software management you use yum, but you can use rpm sometimes
+
+rpm is the legacy command, but its not good at dependency management
+
+rpm is still useful for package queries
+
+rpm queries are by default agains the database of installed packages, add -p to query package files
+	rpm -qf /any/file
+	rpm -ql mypackage
+	rpm -qc mypackage
+	rpm -qp --scripts mypackage-file.rpm
+
+use rpm -qf on configuration files to find what package it is associated with
+
+use rpm -ql to find out about packages
+
+use -qc on a package to find config files
+
+use -qd on a file to find documentation such as man pages
+
+use -qp to query a local package file instead of a package from the database. adding --scripts will allow you to inspect the scripts included and audit them to make sure there is nothing fishy going on.
+

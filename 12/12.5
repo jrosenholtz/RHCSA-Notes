@@ -1,0 +1,16 @@
+12.5 Scheduling with cron
+
+use crontab -e as the user you want to run the job. in many cases this will be the root user
+
+next you need a time specification. ex. */10 4 11 12 1-5
+	minute (*/10)
+	hour (4)
+	day of month (11)
+	month (12)
+	day of week (1-5)
+	this will run every 10 minutes at 4 am on the 11th day in december AND mon-friday
+	
+Cron does NOT have stdout. This means you have to put scripts to logs
+
+you can use man 5 crontab to see the time and date fields. this is a useful manpage
+
