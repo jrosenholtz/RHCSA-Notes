@@ -1,0 +1,251 @@
+Skip to content <#main>
+<https://learning.oreilly.com/>
+O'Reilly <https://learning.oreilly.com/>
+
+  * homeHome <https://learning.oreilly.com/home/>
+  * personYour O'Reillychevron down
+      o Profile <https://learning.oreilly.com/profile/>
+      o History <https://learning.oreilly.com/history/>
+      o Playlists <https://learning.oreilly.com/playlists/>
+      o Highlights <https://learning.oreilly.com/highlights/>
+  * answersAnswers <https://learning.oreilly.com/answers/>
+  * queueExplorechevron down
+      o All Topics <https://learning.oreilly.com/topics/>
+      o Courses <https://learning.oreilly.com/courses/>
+      o Most Popular Titles
+        <https://learning.oreilly.com/search/?query=&sort=popularity&page=0>
+      o Recommended <https://learning.oreilly.com/recommendations/>
+      o Early Releases
+        <https://learning.oreilly.com/search/?query=&extended_publisher_data=true&highlight=true&include_assessments=false&include_case_studies=true&include_courses=true&include_orioles=true&include_playlists=true&include_collections=true&include_notebooks=true&is_academic_institution_account=false&source=user&formats=book&sort=publication_date&facet_json=true&page=0>
+      o Shared Playlists <https://learning.oreilly.com/playlists/discover/>
+  * eventLive Eventschevron down
+      o All Events <https://learning.oreilly.com/live-events/>
+      o Superstreamschevron down
+          + AI & ML <https://learning.oreilly.com/featured/ai/>
+          + Cloud <https://learning.oreilly.com/featured/cloud/>
+          + Data <https://learning.oreilly.com/featured/strata/>
+          + Infra & Ops
+            <https://learning.oreilly.com/featured/infrastructure-ops/>
+          + Open Source <https://learning.oreilly.com/featured/oscon/>
+          + Security <https://learning.oreilly.com/featured/security/>
+          + Software Arch
+            <https://learning.oreilly.com/featured/software-architecture/>
+          + Software Dev
+            <https://learning.oreilly.com/featured/software-development/>
+      o Kataschevron down
+          + Architectural Katas
+            <https://learning.oreilly.com/featured/architectural-katas/>
+  * codeInteractivechevron down
+      o Labs
+        <https://learning.oreilly.com/scenarios/?classification=content-scenario>
+      o Sandboxes
+        <https://learning.oreilly.com/scenarios/?classification=sandbox-scenario>
+  * certificationsCertifications
+    <https://learning.oreilly.com/certifications/>
+  * settingsSettings <https://learning.oreilly.com/u/preferences/>
+
+  * edit groupSupportexternal link
+    <https://www.oreilly.com/online-learning/support/>
+  * documentNewslettersexternal link
+    <https://www.oreilly.com/emails/newsletters/>
+  * log outSign Out <https://learning.oreilly.com/member/logout/>
+
+searchSearch
+
+person chevron down
+
+16.3 Using modprobe
+<https://learning.oreilly.com/videos/red-hat-certified/9780135656495/9780135656495-RCSA_03_16_03/>
+16.4 Using /proc to Tune Kernel Behavior
+16.5 Updating the Kernel
+<https://learning.oreilly.com/videos/red-hat-certified/9780135656495/9780135656495-RCSA_03_16_05/>
+
+6h 19m remaining
+
+
+    16.4 Using /proc to Tune Kernel Behavior
+
+Transcription
+
+Description
+
+- Another part of the kernel that you need to know about is kernel
+tuning through the slash proc file system. So this is just a basic
+introduction in how it works because there are so many parameters that
+can be tuned in the kernel, that requires of course all by itself. So
+how does it work? Well there is slash proc. Slash proc is a file system,
+as well as, a directory that provides access to kernel information. You
+can find pid directories in there, you can find status files in there,
+and you can find tunables in slash proc/sys. The pid directories contain
+information about learning processes. The status files contain
+information about what exactly is happening on your system. We have seen
+the status files a couple of times already in the previous lessons. You
+remember proc partitions? That is where you can check actually which
+partitions are available on your system. And that is a file that is
+mined by the LSBLK utility, for example. The tunables in proc/sys allow
+you to change kernel behavior in real time. To do that you can use the
+echo commands to write a value to any file in proc/sys, to change the
+kernel performance parameter. And once you are happy with the result of
+your echo command, you can write the parameters to etc/sysctl dot conf
+to make them persistent. To get a list of all of the currently existing
+parameters, there is sysctl minus a. Let's check it out. Let's start
+with mount command. If we use mount pipe grep proc and now we can see
+that there is a proc device that is mounted on slash proc with the type
+proc. That's the funniest mount command that you can imagine. Mount proc
+proc proc and it will work as well. So this is what we call a sudo file
+system. The fact that this is not a device but just a word is indicating
+that it is providing access to a kernel interface. So if you look in
+proc, now really you are looking at what the kernel currently is doing.
+Listed in blue, the numbers on the left are the pid directories. These
+contain status information about processing. And if you request process
+information used in ps and it's many options, this is where you get it.
+On the right, you can see many of these status files. We have already
+seen proc partitions but what do you think of proc mem info for example
+which is providing a lot of detailed information about what is happening
+in memory. What I want to explore right now is proc/sys. Proc/sys is the
+tuning interface. And in proc/sys, you can tune many aspects of the
+Linux kernel. Just want to give you one example which is in proc/sys net
+where you can see that there is different tuning interface for core
+networking, for the ipv four protocol ipv six as well as net filter,
+firewall I mean. I'm going into ipv four and in ipv four, we can see
+many aspects of the ip stack that can be set including ip underscore
+forward. Ip underscore forward is what you need to enable if your system
+is working as a router. So let's see what is currently happening. We can
+see that the value currently is set to zero. Now if you want to make it
+possible on your system to forward package, then you need to use echo
+one greater than ip underscore forward. And that will change the
+parameter in the runtime. Now normally after changing a parameter, you
+will check and see if it really is giving you the desired behavior. And
+if that is the case, you need to make the parameter persistent. In order
+to make it persistent, there is sysctl. Before I'm showing you sysctl,
+let me show you we are in slash proc slash sys slash net slash ipv four.
+Now let me use sysctl dash a pipe grep forward and we can see that there
+is this net ipv four dot ip underscore forward is one. This is
+reflecting the current value as it has been set currently. And it is set
+to the value of one because I have just changed it in my configuration.
+Now if I want to make this change persistent, I need to put it in sysctl
+dot conf. The sysctl dot conf is backed up by the sysctl service when
+your system is rebooting. And notice what I need to put in the sysctl
+dot conf, it's basically a relative file name. You can see the
+highlighted line, just slash proc slash sys to be a complete filename.
+So we don't need to include proc/sys. It's just the relative filename
+relative to slash proc slash sys with dot instead slashes as separated
+between directories that you need to include. So if I'm editing etc
+sysctl dot conf, it is telling us that I shouldn't do it here but I can
+do it anyway because it will work. So proc/sys net dot ipv four dot ip
+underscore forward is one and if I put this into configuration file,
+that will make my change persistent. Now this is just high level
+overview of how the mechanism is working. If you use sysctl dash a, now
+you can see many parameters passing by. And if you pipe it through wc,
+you can see that that's a total of 984 lines. Depending on your kernel
+settings and the modules that are loaded, there will be about 1000 of
+different parameters that can be tuned. So really, there is a lot to
+explore there. But for our RCSA, this is enough.
+
+table of contents
+
+Settings
+
+queue
+
+close x
+
+Preparing for certification?
+
+View Study Guidechevron right
+<https://learning.oreilly.com/certifications/guides/0636920381945/>
+
+  * Support <https://www.oreilly.com/online-learning/support/>
+  * Sign Out <https://learning.oreilly.com/member/logout/>
+
+©2022 O'Reilly Media, Inc. 
+
+  * Terms of Service <https://www.oreilly.com/terms/>
+  * Privacy Policy <https://learning.oreilly.com/privacy>
+
+
+    Privacy Preference Center
+
+When you visit any website, it may store or retrieve information on your
+browser, mostly in the form of cookies. This information might be about
+you, your preferences or your device and is mostly used to make the site
+work as you expect it to. The information does not usually directly
+identify you, but it can give you a more personalized web experience.
+Because we respect your right to privacy, you can choose not to allow
+some types of cookies. Click on the different category headings to find
+out more and change our default settings. However, blocking some types
+of cookies may impact your experience of the site and the services we
+are able to offer.
+More information <https://www.oreilly.com/privacy-cookies.html>
+Enable All
+
+
+      Manage Consent Preferences
+
+
+Strictly Necessary Cookies
+
+Always Active
+
+These cookies are necessary for the website to function and cannot be
+switched off in our systems. They are usually only set in response to
+actions made by you which amount to a request for services, such as
+setting your privacy preferences, logging in or filling in forms. You
+can set your browser to block or alert you about these cookies, but some
+parts of the site will not then work. These cookies do not store any
+personally identifiable information.
+
+
+Performance Cookies
+
+Always Active
+
+These cookies allow us to count visits and traffic sources so we can
+measure and improve the performance of our site. They help us to know
+which pages are the most and least popular and see how visitors move
+around the site. All information these cookies collect is aggregated and
+therefore anonymous. If you do not allow these cookies we will not know
+when you have visited our site, and will not be able to monitor its
+performance.
+
+
+Functional Cookies
+
+Always Active
+
+These cookies enable the website to provide enhanced functionality and
+personalisation. They may be set by us or by third party providers whose
+services we have added to our pages. If you do not allow these cookies
+then some or all of these services may not function properly.
+
+
+Targeting Cookies
+
+Always Active
+
+These cookies may be set through our site by our advertising partners.
+They may be used by those companies to build a profile of your interests
+and show you relevant adverts on other sites. They do not store directly
+personal information, but are based on uniquely identifying your browser
+and internet device. If you do not allow these cookies, you will
+experience less targeted advertising.
+
+Back ButtonBack
+
+Vendor Search
+
+Search Icon
+
+Filter Icon
+
+Clear
+
+checkbox label label
+Apply Cancel
+Consent Leg.Interest
+checkbox label label
+checkbox label label
+checkbox label label
+
+Reject All Confirm
+<https://www.onetrust.com/products/cookie-consent/>

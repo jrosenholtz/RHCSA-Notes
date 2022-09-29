@@ -1,0 +1,10 @@
+26.5 Understanding automount
+
+in /etc/auto.master you'll identify the directory that automount should manage, and the file that is used for additional mount information
+	/data /etc/auto.data -  in this example, /data is the file that is being managed, and the contents of auto.data contain informat
+	
+in /etc/auto.data you can identify the subdirectory on which to mount and what to mount
+	files	-rw	nfsserver:/data/files
+	
+ensure the autofs service is started
+	systemctl enable --now autofs

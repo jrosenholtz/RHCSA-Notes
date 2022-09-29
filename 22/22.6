@@ -1,0 +1,5 @@
+22.6 Resetting the Root password and SELINUX
+
+touch /.autorelabel - REMEMBER THIS
+
+/.autorelabel acts as a restorecon for the entire filesystem. If you don't do this, your selinux permissions are going to be messed up.

@@ -1,0 +1,46 @@
+27.4 managing containers
+
+map a host port to the container application to make it reachable from the outside
+	podman run -d -p 8000:80 nginx - this will map a host port 8000 to container port 80
+	podman port -a will show the current port mappings
+	do not forget to open these ports in the firewall: firewall-cmd --add-oirt=8000/tcp [permanent]
+
+containers without root priv can only bind to a non privileged host port
+
+some containers require environment variables to run them
+
+if a container failes because of this requirement, use podman logs containername, it show the app logs
+
+also try podman inspect and look for the usage line
+
+to run with variables, use -e VAR=value while starting the container to pass variable values:
+	podman run -d --name mydb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_USER=bob -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=books -p 3306:3306 mariadb
+	
+podman ps shows currently running containers
+
+podman ps -a shows containers in a stopped state
+
+podman stop mycontainer stops a container gracefully, or after 10 seconds shuts it down
+
+podman rm mycontainer removes a contianer, including all modifications written to its variable layer
+
+podman restart mycontainer restarts the container
+
+podman exec mycontainer uname -r runs an additional process inside a container
+
+podman exec -it mycontainer /bin/bash access a shell
+	you may need to use /bin/shell
+
+podman exec -l cat /etc/redhat-release - runs the command on the last container that was used in any command
+
+by default, podman runs non root containers
+	these cannot bind to a privileged port, and do not have an ip address
+	
+the only way to access these containers is with port forwarding
+
+if you need a container that has an ip address, run it as root with sudo
+
+root containers will only show if you use sudo podman ps
+
+after startinga  root container, a bridge device is created that works like NAT to allow the container to access the network
+

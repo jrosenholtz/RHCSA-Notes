@@ -1,0 +1,39 @@
+27.3 managing images
+
+the image is a read only runnable instance of the container
+
+images are obtained from registries, which are specified in /etc/contianters/registries.conf
+
+additional registries can be added in the [registries.search] section of this file
+
+use podman info to see which registries are being used
+
+insecure registries are not protected with tls encrpytion and must be listed in [registries.insecure]
+
+podman search searches all registries
+
+use filters to further limit the resulk
+	--limit 5 shows a maximum of 5 images per registry
+	--filter stars=5 shows images with 5 stars or more
+	--filter is-official=true shows official images only
+	
+websearch is availabe through https://access.redhat.com/containers
+
+use skopeo to inspect images before pulling them
+
+skopeo inspect docker://registry.redhat.io/ubi8/ubi8
+use podman to inspect images that are locally available
+	podman images
+	podman inspect image name
+	
+some docker images are designed to run as root. They wont run in podman without sudo
+
+use complete urls where possible
+
+when newer versions of images are available, old versions are still kept
+
+use podman images to list images
+
+podman rmi to remove
+
+advanced management is provided with buildah

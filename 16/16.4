@@ -1,0 +1,16 @@
+16.4 using /proc to tune kernel behavior
+
+/proc is a file system that provides access to kernel information
+	PID directories - information about running processes
+	status files - information about what is happening on your system
+	tunables in /proc/sys - change kernels behavior in real time
+	
+use echo to write a value to any file in /proc/sys to change kernel performance parameters
+
+write the parameters to /etc/sysctl.conf to make them persistent
+
+use sysctl -a to show current settings
+
+in /etc/sysctl.conf you must add the performance parameters you want changed in the following format:
+
+net.ipv4.forward = 0

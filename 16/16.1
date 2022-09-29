@@ -1,0 +1,21 @@
+16.1 Understanding the linux kernel
+
+the linux kernel is the heart of the linux operating system
+
+the linux kernel addresses hardware devices
+
+the linux kernel has drivers to interface with hardware. in the linux kernel, these are called modules
+
+There are some important modules in the kernel:
+
+initramfs
+	this module is loaded when linux boots
+	there are a lot of modules compiled into initramfs when you install your system
+systemd-udevd
+	systemd-udevd recognizes hot plug hardware, one example is a usb thumb drivers
+
+modprobe
+	the modprobe command is a good way to work with drivers. you can use this command to manually load drivers.
+	
+
+to access the kernel, you use the userspace shell. By typing a command, a system call is made to the kernel. Based on the syscall, the kernel knows what to do. Every syscall is going to interact with a module in some way. 

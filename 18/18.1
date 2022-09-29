@@ -1,0 +1,19 @@
+18.1 Understanding Troubleshooting modes
+
+if you are having trouble booting, there are various places you can stop the system for troubleshooting
+
+Post - boot cd
+Uefi/Bios
+grub2 - kernel arguments only, such as rhgb, quiet, and target modes
+kernel
+initramfs - rd.break. This will allows you to get into the system before systemd
+systemd - init=/bin/bash. this removes systemd and replaces the init with /bin/bash
+os - systemd.unit=emergency.target. this gives you the emergency mode if the problem arises early in the boot procedure
+services - rescue.target
+
+
+if you cannot even load the kernel, you must use the grub menu
+
+if your kernel is loading, use rd.break. you can simply append this to the end of the linux line from the grub boot menu
+
+if something goes wrong with loading systemd units, you will either use emergency.target or rescue.target depending on where the issue is. 

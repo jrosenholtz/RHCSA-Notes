@@ -1,0 +1,11 @@
+26.1 configuring a basae nfs server
+
+run the nfs-server service
+
+create a directory to share:/data
+
+edit /etc/exports to contain the following line
+	/data *(rw,no_root_squash) - the star in this case indicates who can access the server, this is an IP or hostname, not users. rw is read-write, no_root_squash means root users from other computers retain root permissions in this share
+
+configure the firewalld firewall:
+	add nfs, mountd, and RPC-bind services.

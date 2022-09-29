@@ -1,0 +1,13 @@
+25.1 Understanding linux time
+
+there are many different commands and clocks in linux
+
+hardware clock -> System Clock
+
+the system clock always gets its time from the hardware clock at boot. the command for this is hwclock. 
+
+there is also a timedatectl command for the system clock. 
+
+most linux systems are connected to NTP, or the network time protocol. This is a kind of server that provides time information
+
+be aware, if you are off more than 1000sec, you will not be able to synchronize with NTP and you will have to set the hardware clock

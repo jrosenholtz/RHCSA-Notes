@@ -1,0 +1,34 @@
+27.6 Managing containers as a service
+
+to automatically start containers ins a standalone situation, you can create systemd user unit files for rootless containers and manage them with systemctl
+
+if k8 or openshift is used, containers will be started by default
+
+systemd user services start when a user session is opened and close when a user session is stopped
+
+use loginctl enable-linger to change that behavior and start user services for a specific user (req root)
+
+	loginctl enable-linger linda
+	loginctl show-user linda
+
+create a user account to manage containers
+
+use podman to generate a user systemd file for a containers
+
+this file will be generate in the current directory
+	podman generate systemd --name myweb --files
+
+to have systemd create the container when the service starts and delete it again when the service stops, add --new
+	podman generate systemd --name ephemeral_ellie --files --new
+
+to generate a service file for a root container, do it from the /etc/systemd/system as the directory
+
+user specific files should go in ~/.config/systemd/user
+
+manage them with systemctl --user	
+	systemctl --user daemon-reload
+	systemctl --user enable myapp.service
+	systemctl --user start myapp.service
+	
+systemctl only workin on console or ssh and not in su
+

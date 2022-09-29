@@ -1,0 +1,7 @@
+22.5 Analyzing SELinux log messages
+
+selinux uses auditd to write log messages to the audit log
+
+messages in the audit log may be hard to interpret
+
+ensure that sealer is available, it interprets messages from the audit log, applies selinux ai, and writes meaningful messages to /var/log/messages

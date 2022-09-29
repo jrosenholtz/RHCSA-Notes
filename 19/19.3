@@ -1,0 +1,29 @@
+19.3 Using loops in a shell script part 1
+
+different conditional statements are available
+	if .. then .. fi - every if statement ends in fi
+	while .. do .. done
+	until .. do .. done
+	case .. in .. esac
+	for .. in .. do .. done
+
+test command can return true or false based on comparisons, test can be called with either test 1 -lt 2 or [1 lt 2]
+
+use man test to see all comparisons available
+
+
+
+consider the following script:
+
+if [ -z $1]
+then
+	echo you have to provide an argument
+	exit 6
+fi
+
+echo the argument is $1
+
+
+if [-z $1] - $1 is the first arg in a script. this line checks if you have provided an argument
+
+exit 6 - exit stops the script immediately. 6 is the exit code. there are many error codes available. 

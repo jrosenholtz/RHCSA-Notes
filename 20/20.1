@@ -1,0 +1,12 @@
+20.1 Understanding ssh key-based login
+
+ssh-keygen is the tool to generate keys for ssh login
+
+there are 2 keys, private and public
+
+the private key is like your identity, it needs to be protected, the public key on the other hand needs to be copied to your home directory on the server
+
+ssh-copy-id will copy your public key to the location on the server
+
+when you establish an ssh session, it sends back a packet encrpyted with your public key. if you can decrypt and respond with your private key, you are allowed to make a secure connection
+

@@ -1,0 +1,18 @@
+22.3 Understanding SELinux context labels and booleans
+
+every object is labeled with a context label. a context label is 3 parts
+	user
+	role
+	type - flags which type of operation is allowed on this object. the type is the only part which matters for rhcsa. 
+
+Many commands support a -Z option to show the current context information
+
+context types are used in the rules in the policy to define which source object has access to which target object.
+
+a boolean is an on/off switch
+
+use it to enable or disable specific categories of functionality all together. 
+
+getsebool -A - get selinux booleans
+
+setsebool -P boolean on/off -  switch booleans for selinux

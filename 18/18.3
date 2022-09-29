@@ -1,0 +1,16 @@
+18.3 troubleshooting filesystem issues
+
+sometimes fs corruption occurs, but rarely and usually it is automatically fixed
+
+the most common problems come from typos in /etc/fstab
+
+if necessary, remount the files in an rw state and edit /etc/fstab
+
+use mount -a to check your fstab before you create a problem 
+
+make sure you reboot after each adjustment to make sure its working
+
+gfragmentation can be an issue, different tools exist to fix it
+	xfs_fsr is the xfs file system reorganizer and can optimize xfs fs
+	e4defrag can be used to defrag ext4
+	

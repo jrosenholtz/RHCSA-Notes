@@ -1,0 +1,16 @@
+19.2 essential shell script commands
+
+scripts must be executable, use chmod +x myscript
+
+if you are trying to run a script, and you don't want it to point to it directly, you either have to add the directory to PATH, or put it in a directory thats already in a path
+
+all scripts start with a shebang to explain what interpreter to use such as #!/bin/bash
+
+comments should be used to explain what a script should do
+
+use read VARIABLE to read user input
+
+use $VARIABLE to call back the variable
+
+scripts are executed in a sub shell. if you want to run it in the current shell, use source myscript or . myscript
+

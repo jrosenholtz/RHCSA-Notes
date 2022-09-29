@@ -1,0 +1,17 @@
+26.3 Configuring a base samba server
+
+install samba server package
+
+create a directory to share
+
+create a local linux user account
+
+set linux permissions
+
+use smbpasswd -a to add a samba user account
+
+enable the share in /etc/samba/smb.conf
+
+use systemctl start smb to start the service
+
+use firewall-cmd --add-service samba --permanent

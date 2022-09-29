@@ -1,0 +1,11 @@
+20.2 setting up ssh key-based login
+
+ssh-keygen creates a public/private keypair for the current user
+	setting a passphrase will make it more secure but less convenient
+	
+ssh-copy-id will copy the public key to the target server
+
+ssh-agent /bin/bash allocates space in the bash shell to cache the private key passphrase
+
+ssh-add adds the current passphrase to the cache
+

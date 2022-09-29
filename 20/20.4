@@ -1,0 +1,12 @@
+20.4 Securely copying files
+scp can be used to securely copy files over the network, using the sshd process
+
+scp file1 file2 student@remoteserver:/home/student
+
+scp -r root@remoteserver:/tmp/files - -r is for recursive. this will copy the contents of /tmp/files to the current dir
+
+sftp offers an ftp client interface to securely transfer files using sshd
+	use put /my/file to upload a file
+	use get /your/gile to download to the current directory
+	use exit at the end of your ftp session
+

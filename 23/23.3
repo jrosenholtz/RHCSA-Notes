@@ -1,0 +1,12 @@
+23.3 configuring a firewall with firewall-cmd
+
+the firewall-cmd command is used to write firewall configurations
+
+use --permanent to write a persistent config, but this wont write to runtime
+
+without --permanent, the rule is runtime but not persistent.
+
+firewall-cmd --get-services to get a list of available services
+
+used --add-service ftp to add ftp service to add a service to the configurations
+

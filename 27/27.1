@@ -1,0 +1,62 @@
+27.1 Understanding Containers
+
+a container is a complete package to run an application, which contains all the dependencies
+
+containers make it easy to run different versions of app dependencies side by side
+	for example, if you have applications written in 2 different versions of python
+	
+the container is strictly isolated, so dependencies will never interfere
+
+containers run on top of a container engine, that is offered by the host operating system
+	docker is one example of a container engine
+
+the kernel is not included in the container, instead it is offered by the host. This is a benefit because you dont need to waste overhead as with a virtual machine
+
+this also allows you to run containers that are distro agnostic
+
+to start a container, images are used
+
+a container image is a read only instance you can run
+
+the purpose of a container is to run an isolated process
+
+to do this, container images are configured to run a standard application
+
+there are 2 major types of container images
+	application containers are used to run common applications - comparable to running a daemon
+	system containers are used as the foundation to build custom images, and dont come with a standard application
+	
+containers are linux, and rely heavily on features provided by the linux kernel
+	namespaces for isolation between processes
+	control group for resource management - cgroups
+	SElinux to ensure security
+
+typically one container runs one application
+
+multiple containers can be connected with microservices
+
+to manage containers at an enterprise level, you use orchestration platforms like kubernetes or openshft
+
+different solutions for managing containers exist
+
+these solutions are highly compatible and interchangable because of the open container initiative
+
+in RHEL 8, red hat is no longer offering docker support. instead RHEL is offering new utils
+	podman is used to manage containers and container images
+	buildah is used to create new container images
+	skopeo is used to inspect, delete, copy, and sign images
+	
+if containers need to run a process on a privileged port, they need root privileges
+
+rootless containers will be run as a non root user
+
+running containers as root is more dangerous
+
+running containers in an enterprise environment requires a solution that offers additional features
+	easily scale containers
+	ensure availability
+	offer a developer workflow to make it easy to get from source code to containers
+	
+kubernetes is the common standard used to manage containers
+
+red hat openshift is the red hat kubernetes distribution, it offers some additional features

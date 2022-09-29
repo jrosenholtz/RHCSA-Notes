@@ -1,0 +1,34 @@
+19.4 using loops in shell scripts part 2
+
+consider the following script:
+
+#!/bin/bash
+
+COUNTER=$1
+COUNTER=$(( COUNTER * 60 ))
+
+minusone(){
+	COUNTER=$((COUNTER - 1))
+	sleep 1
+}
+
+while [$COUNTER -gt 0 ]
+do
+	echo you have $COUNTER seconds left
+	minusone
+done
+
+[ $COUNTER = 0] && echo time is up && minusone
+[ $COUNTER '-1'] && echo you are one second late && minusone
+
+while true
+do
+	echo you are now ${COUNTER#-} seconds late
+	minusone
+done
+
+double braces allows you to perform arithmetic operations $(())
+
+$$ is another way of writing if true then in a more compact way
+
+${#-} removes the minus from the - number

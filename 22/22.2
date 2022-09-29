@@ -1,0 +1,21 @@
+22.2 managing SELinux modes
+
+selinux can be enabled or disabled, this is all handled at the kernel level. If you want to switch between them, you MUST reboot. 
+
+luckily there is a troubleshooting mode, so while enabled selinux can be enforcing or permissive.
+
+in enforcing, selinux will act as normal
+
+in permissive, selinux will not block anything but it will still log
+
+use getenforce to get the current status
+
+you can use the setenforce command to switch
+
+setenforce permissive
+
+setenforce enforcing
+
+edit /etc/sysconfig/selinux to manage the default state of selinux
+
+NEVER set to disabled if it is meant to be temporary!

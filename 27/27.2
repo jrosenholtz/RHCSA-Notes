@@ -1,0 +1,30 @@
+27.2 Running a container
+
+to start with, continaer management tools need to be installed. yum module install container-tools
+
+after installing, you can immediately start running containers from the docker registry
+	podman run -d nginx
+	
+the red hat registries are registry.redhat.io for official redhat products, and registry.connect.redhat.com for third party products
+
+red hat registry access requires athentication using podman login where the red hat account name and password are provided
+
+registries are processed in order as in /etc/containers/registries.conf
+
+to get a specific container, use a complete name reference: podman pull registry.access.redhat.com/ubi8.ubi:latest
+
+use podman pull to pre pull the image from the registry to the local system
+
+use podman run to pull the container (if mecessary) and run it	
+	will run the contianer in the foreground
+	use -d to run in background
+	use -it to run in interactive mode
+	consider using the option --rm to remove the contianer after using it
+
+detach from container using ctrl-p, ctrl-q
+you can also use exit to exit the container
+
+podman ps to list runnning containers
+
+podman ps --all to list container history
+

@@ -1,0 +1,13 @@
+23.2 Understanding firewalld components
+
+firewalld is using different components to make firewalling easier
+
+service: the main component, it tells the ports and kernel modules to load
+
+zone: a default config to which network cardscan be assigned to apply specific settings
+
+ports: elements to allow access to specific ports
+
+additional components are available, but not usually used in a base configuration.
+
+firewall-cmd --list-all to show configurations

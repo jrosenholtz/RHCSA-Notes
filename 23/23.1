@@ -1,0 +1,11 @@
+23.1 Understanding RHEL firewall configuration
+
+firewalling starts at the kernel, because the kernel inspects all packets from the NIC
+
+the kernel uses netfilter. Netfilter is an integrated part of the linux kernel
+
+there is an interface on top of the kernel called nftables to tell netfilter what to block and allow
+
+nftables is low level. it has commands to interact with it, but they are difficult to use
+
+there is now firewalld, to write nftables rules easily.

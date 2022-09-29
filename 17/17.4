@@ -1,0 +1,21 @@
+17.4 Managing systemd targets
+
+a systemd target is a group of unit files
+
+some targets are isolatable, whioch means they define the final state a system is starting in
+	emergency.target - this is a minimal target, designed to run with the least possible amount of services
+	rescue.target - this is also a troubleshooting target, but it loads a few more services. 
+	multi-user.target - this is the state most servers boot into. all services are running, but there is no graphical interface
+	graphical.target - all services are running, and there is graphical interaction with the os
+	
+When enabling a unit, it is added to a specific target. 
+
+you can see what services are in which targets under /etc/systemd/system/*.target.wants
+
+you can see specific service targets using systemctl cat service and checking the [install] entry
+
+if you enable a service, the symbolic link is created under the /etc/systemd/system/*.target.wants directory
+
+there are also non isolatable targets, such as getty.target and nfs-client.target. These have dependencies but are not a final boot state
+
+use systemctl list-dependencies to view these targets

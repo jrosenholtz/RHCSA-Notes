@@ -1,0 +1,9 @@
+26.4 Mounting Samba shares
+
+install the cifs-utils and samba-client rpm packages
+
+use smbclient -L //sambahost to discover shares
+
+use mount -o username=sambauser //sambaserver/share /somewhere to mount the shares
+
+make mount persistent through etc/fstab, using the _netdev, username= and password= options

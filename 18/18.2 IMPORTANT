@@ -1,0 +1,21 @@
+18.2 changing the root password
+
+this is a very important procedure. MAKE SURE YOU LEARN THIS ONE
+
+enter grub menu
+
+find the line that loads the linux kernel and add rd.break to the end of the line
+
+mount -o remount,rw /sysroot - mount sysroot as read and writable - this command allows you to pass different mount commands to a mounted drive without having to mount it again
+
+chroot /sysroot - /sysroot is the location of the real root system. chroot changes the location of the root directory
+
+echo secret | passwd --stdin root - change the root user account password
+
+touch /.autorelabel - this will create a file with the name .autorelable in the root of the filesystem. if you don't do this, the reboot will fail
+
+ctrl+d 
+
+ctrl+d
+
+once you do this, you will see that selinux needs to complete its autorelable. Make sure you let this complete, or the system will bork

@@ -1,0 +1,13 @@
+20.3 Changing common ssh server options
+
+server options are set in /etc/ssh/sshd_config
+	port 22 - default port
+	permitrootlogin - allow root user to log in with ssh?
+	pubkeyauthentication - is public key auth allowed?
+	passwordauthentication
+	x11forwarding - allows graphical screen forwarding
+	AllowUsers useraccount - allows only certain users to ssh in
+	
+	
+client options are set in /etc/ssh/ssh_config
+	to apply changes, systemctl restart sshd

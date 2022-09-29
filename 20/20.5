@@ -1,0 +1,16 @@
+20.5 securely synchronizing files
+
+rsync is using ssh to synchronize files
+
+if source and target files already exist, rsync will only sync the differences
+
+the rsync has many options, these are the most common
+	-r synchronizes recursively
+	-l synchronizes symbolic links
+	-p preserves symbolic links
+	-n does a dry run before syncing
+	-a uses archive mode, which is equivelant to -rlptgoD
+	-A uses archive mode and also syncs ACLS
+	-X will sync SELinux context as well
+	
+rsync -ar user@server:/target/ /destination/

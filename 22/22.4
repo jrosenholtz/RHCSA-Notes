@@ -1,0 +1,8 @@
+22.4 using file context labels
+
+use semanage fcontext to set the file context labels
+	this will write the context to selinux policy
+
+to enforce the policy setting on the filesystem, use restorecon
+
+alternatively, use touch /.autorelabel to relabel all files that are specified in the policy.

@@ -1,0 +1,23 @@
+27.5 Attaching storage to containers
+
+container storage is ephemeral
+
+modifications are written to the container writable layer and stay for the container lifetime. 
+
+persistent storage will keep files externally
+
+us bind mounts to connect a directory inside the container to directory on the host
+
+ensure the user account used in the container has access to the host directory, and set the selinux context type to container_tile_t
+
+if the container user is the owner of the host directory, the :Z option can be used: podman run -d v /webfiles:/webfiles:Z nginx
+
+using SELinux is essential, or root containers would have full access to the host system
+
+sudo mkdir /dbfiles
+
+sudo chmod o+w /dbfiles
+
+sudo semanage fcontext -a -t container_file_t "/dbfiles(/.*)?"
+
+you MUST BE THE OWNER of the file if you are trying to mount a directory like this

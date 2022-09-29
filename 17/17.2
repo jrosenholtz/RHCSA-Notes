@@ -1,0 +1,39 @@
+17.2 Modifying Grub2 Runtime Procedures
+
+from the grub boot menu, press e to edit the runtime boot options
+
+press c to enter grub2 command mode
+	from command mode type help for an overview of available options
+
+
+you will have the options of the last 3 kernels and the rescue kernel. the rescue kernel can help boot a broken system
+
+here are some of the default params:
+
+load_video - loads video driver
+
+set gfxpayload - set a module for video
+
+insmod gzio loads a mdoule for compression function
+
+linux line - this line loads the linux kernel
+
+vmlinuz - name of linux kernel
+
+root - sets root dir name
+
+ro - read only
+
+crash kernel auto - sets auto logging for crashes
+
+resume= optional server
+
+lv= not important for now
+
+rhgb = red hat graphical boot
+
+quiet = no visible terminal
+
+you may want to remove rhgb and quiet
+
+initrd - name of the initrd that needs to be loaded. don't change this.
